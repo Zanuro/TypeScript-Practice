@@ -1,5 +1,5 @@
 # TypeScript 
 
-1.Introduction-- Basic types
-2.Variable declarations
-3.Interfaces
+## Introduction-- Basic types
+## Variable declarations
+## Interfaces
