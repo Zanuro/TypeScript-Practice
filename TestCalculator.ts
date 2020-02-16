@@ -2,4 +2,6 @@ import { Calculator, test } from "./Calculator";
 
 
 let c = new Calculator();
-test(c, "3/1*4+2-1=");
+test(c, "3/1.5*4+2-1=");
+c.clear_results();
+test(c, "4/2.855-1+2.6-3.4=");
