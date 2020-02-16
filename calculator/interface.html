@@ -1,0 +1,78 @@
+<html> 
+   <head> 
+      <title>TypeScript Calculator</title>
+      <script src="main.ts"></script>
+      <style> 
+         .center-screen {
+         display: flex;
+         flex-direction: column;
+         justify-content: center;
+         align-items: center;
+         text-align: center;
+         min-height: 100vh;
+         }
+         .title{ 
+         margin-bottom: 10px;
+         font-size: 40px; 
+         text-align:center; 
+         width: 420px; 
+         color:#4B97FF; 
+         border: solid black 2px; 
+         } 
+         input[type="button"] 
+         { 
+         background-color:#FFB564; 
+         color: black; 
+         border: solid black 2px; 
+         width:100px; 
+         height: 100px;
+         } 
+  
+         input[type="text"] 
+         { 
+         background-color:white; 
+         border: solid black 2px; 
+         width:100%;
+         } 
+         #result{
+            height: 100px;
+            background-color:#FFF0C4;
+         }
+      </style> 
+   </head> 
+   <body> 
+      <div class="center-screen">
+            <div class = title >TypeScript Calculator</div> 
+            <table id="calculator" border="1"> 
+               <tr> 
+                  <td colspan="3"><input type="text" id="result"/></td> 
+                  <td><input type="button" value="c" id="clear"/> </td> 
+               </tr> 
+               <tr> 
+                  <td><input type="button" value="1" id="button-1"/> </td> 
+                  <td><input type="button" value="2" id="button-2"/> </td> 
+                  <td><input type="button" value="3" id="button-3"/> </td> 
+                  <td><input type="button" value="/" id="op/"/> </td> 
+               </tr> 
+               <tr> 
+                  <td><input type="button" value="4" id="button-4"/> </td> 
+                  <td><input type="button" value="5" id="button-5"/> </td> 
+                  <td><input type="button" value="6" id="button-6"/> </td> 
+                  <td><input type="button" value="-" id="op-"/> </td> 
+               </tr> 
+               <tr> 
+                  <td><input type="button" value="7" id="button-7"/> </td> 
+                  <td><input type="button" value="8" id="button-8"/> </td> 
+                  <td><input type="button" value="9" id="button-9"/> </td> 
+                  <td><input type="button" value="+" id="op+"/> </td> 
+               </tr> 
+               <tr> 
+                  <td><input type="button" value="." id="op."/> </td> 
+                  <td><input type="button" value="0" id="button-0"/> </td> 
+                  <td><input type="button" value="=" id="op="/> </td> 
+                  <td><input type="button" value="*" id="op*"/> </td> 
+               </tr> 
+            </table> 
+      </div>
+   </body> 
+</html>
