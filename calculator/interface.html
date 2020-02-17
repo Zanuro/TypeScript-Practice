@@ -1,7 +1,8 @@
+<!DOCTYPE html>
 <html> 
-   <head> 
+   <head>
+      <meta charset="utf-8"/> 
       <title>TypeScript Calculator</title>
-      <script src="main.ts"></script>
       <style> 
          .center-screen {
          display: flex;
@@ -27,16 +28,11 @@
          width:100px; 
          height: 100px;
          } 
-  
-         input[type="text"] 
-         { 
-         background-color:white; 
-         border: solid black 2px; 
-         width:100%;
-         } 
          #result{
             height: 100px;
             background-color:#FFF0C4;
+            border: solid black 2px;
+            width: 100%;
          }
       </style> 
    </head> 
@@ -45,7 +41,7 @@
             <div class = title >TypeScript Calculator</div> 
             <table id="calculator" border="1"> 
                <tr> 
-                  <td colspan="3"><input type="text" id="result"/></td> 
+                  <td colspan="3"><div name="result" id="result"></div></td> 
                   <td><input type="button" value="c" id="clear"/> </td> 
                </tr> 
                <tr> 
@@ -78,5 +74,7 @@
                </tr>
             </table> 
       </div>
+   <script> var exports = {}; </script>
+   <script src="main.js"></script>
    </body> 
 </html>

@@ -96,7 +96,7 @@ export class Calculator {
                 this.memory_number = Math.ceil(this.memory_number);
             else
                 this.memory_number = Math.floor(this.memory_number);
-                
+
             this.current_number = this.factorial_int(this.memory_number);
             this.operator = "";
             this.float_digit = false;
@@ -135,10 +135,11 @@ export class Calculator {
     }
 }
 
-export function test(c: Calculator, input: string) {
+export function test(c: Calculator, input: string):number {
     for (let i = 0; i < input.length; i++) {
         c.handleChar(input[i]);
     }
 
     console.log(`The result of '${input}' is '${c.getResult()}'`);
+    return c.getResult();
 }

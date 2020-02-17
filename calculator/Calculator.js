@@ -87,8 +87,6 @@ var Calculator = /** @class */ (function () {
                 this.memory_number = Math.ceil(this.memory_number);
             else
                 this.memory_number = Math.floor(this.memory_number);
-            console.log("1 " + this.memory_number);
-            console.log("2 " + this.current_number);
             this.current_number = this.factorial_int(this.memory_number);
             this.operator = "";
             this.float_digit = false;
@@ -132,5 +130,6 @@ function test(c, input) {
         c.handleChar(input[i]);
     }
     console.log("The result of '" + input + "' is '" + c.getResult() + "'");
+    return c.getResult();
 }
 exports.test = test;

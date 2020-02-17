@@ -3,7 +3,7 @@ import { Calculator, test } from "./Calculator";
 let c = new Calculator();
 let entry:string = "";
 
-
+console.log("aa");
 let btn_1: HTMLElement | null;
 btn_1 = document.getElementById("button-1");
 if(btn_1 !== null){
@@ -104,12 +104,13 @@ if(btn_fact !== null){
 
 function listen_input(entry_char:string){
 
-    if(entry_char >= "0" && entry_char <= "9"){
+   // if(entry_char >= "0" && entry_char <= "9"){
         entry += entry_char;
-    }
+    //}
 
 }
 function compute_result(){
     entry += "=";
-    test(c,entry);
+    let result = test(c,entry);
+    (<HTMLInputElement>document.getElementById("result")).value = String(result);
 }
