@@ -51,47 +51,56 @@ if(btn_9 !== null){
 }
 
 let btn_div: HTMLElement | null;
-btn_div = document.getElementById("button-9");
+btn_div = document.getElementById("op/");
 if(btn_div !== null){
-    btn_div.addEventListener("click", (e:Event) => );
+    btn_div.addEventListener("click", (e:Event) => listen_input("/"));
 }
 
 let btn_plus: HTMLElement | null;
-btn_plus = document.getElementById("button-9");
+btn_plus = document.getElementById("op+");
 if(btn_plus !== null){
-    btn_plus.addEventListener("click", (e:Event) => );
+    btn_plus.addEventListener("click", (e:Event) => listen_input("+"));
 }
 
 let btn_mult: HTMLElement | null;
-btn_mult = document.getElementById("button-9");
+btn_mult = document.getElementById("op*");
 if(btn_mult !== null){
-    btn_mult.addEventListener("click", (e:Event) => );
+    btn_mult.addEventListener("click", (e:Event) => listen_input("*"));
 }
 
 let btn_min: HTMLElement | null;
-btn_min = document.getElementById("button-9");
+btn_min = document.getElementById("op-");
 if(btn_min !== null){
-    btn_min.addEventListener("click", (e:Event) => );
+    btn_min.addEventListener("click", (e:Event) => listen_input("-"));
 }
 
 let btn_equal: HTMLElement | null;
-btn_equal = document.getElementById("button-9");
+btn_equal = document.getElementById("op=");
 if(btn_equal !== null){
-    btn_equal.addEventListener("click", (e:Event) => );
+    btn_equal.addEventListener("click", (e:Event) => compute_result());
 }
 
 let btn_point: HTMLElement | null;
-btn_point = document.getElementById("button-9");
+btn_point = document.getElementById("op.");
 if(btn_point !== null){
-    btn_point.addEventListener("click", (e:Event) => );
+    btn_point.addEventListener("click", (e:Event) => listen_input("."));
 }
 
 let btn_clear: HTMLElement | null;
-btn_clear = document.getElementById("button-9");
+btn_clear = document.getElementById("clear");
 if(btn_clear !== null){
-    btn_clear.addEventListener("click", (e:Event) => );
+    btn_clear.addEventListener("click", (e:Event) => c.clear_results());
 }
-
+let btn_mod: HTMLElement | null;
+btn_mod = document.getElementById("op%");
+if(btn_mod !== null){
+    btn_mod.addEventListener("click", (e:Event) => listen_input("%"));
+}
+let btn_fact: HTMLElement | null;
+btn_fact = document.getElementById("op!");
+if(btn_fact !== null){
+    btn_fact.addEventListener("click", (e:Event) => listen_input("!"));
+}
 
 function listen_input(entry_char:string){
 
@@ -99,4 +108,8 @@ function listen_input(entry_char:string){
         entry += entry_char;
     }
 
+}
+function compute_result(){
+    entry += "=";
+    test(c,entry);
 }
