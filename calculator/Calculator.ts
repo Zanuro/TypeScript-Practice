@@ -5,6 +5,8 @@ export class Calculator {
     private float_digit:boolean = false;
     private number_of_float_digits = 10;
     private operator!: string;
+    private fact_precision = 7;
+    private p_coeff:number[] = [0.99999999999980993, 676.5203681218851, -1259.1392167224028, 771.32342877765313, -176.61502916214059, 12.507343278686905, -0.13857109526572012, 9.9843695780195716e-6, 1.5056327351493116e-7];
 
     protected processDigit(digit: string, currentValue: number) {
         if (digit >= "0" && digit <= "9" && this.float_digit == false) {
@@ -16,7 +18,7 @@ export class Calculator {
     }
 
     protected processOperator(operator: string) {
-        if (["+", "-", "*", "/"].indexOf(operator) >= 0) {
+        if (["+", "-", "*", "/", "%"].indexOf(operator) >= 0) {
             return operator;
         }
     }
@@ -33,8 +35,29 @@ export class Calculator {
             case "-": return left - right;
             case "*": return left * right;
             case "/": return left / right;
+            case "%": return left % right;
         }
         return 0;
+    }
+
+    protected gamma(z:number):number {
+
+        if (z < 0.5) return Math.PI / (Math.sin(Math.PI * z) * this.gamma(1 - z));
+        else {
+            z -= 1;
+
+            let x:number = this.p_coeff[0];
+            for (let i = 1; i < this.fact_precision + 2; i++)
+            x += this.p_coeff[i] / (z + i);
+
+            var t = z + this.fact_precision + 0.5;
+            return Math.sqrt(2 * Math.PI) * Math.pow(t, (z + 0.5)) * Math.exp(-t) * x;
+        }
+    }
+
+    protected factorial_int(x: number):number{
+        
+        return (x != 1)? x * this.factorial_int(x - 1) : 1;
     }
 
     public clear_results(){
@@ -64,6 +87,20 @@ export class Calculator {
         }
         else if(processed_char === "."){
             this.float_digit = true;
+            return;
+        }
+        else if(processed_char === "!"){
+            this.evaluate();
+            //this.current_number = this.gamma(this.memory_number);
+            if(this.memory_number % 1 >= 0.5)
+                this.memory_number = Math.ceil(this.memory_number);
+            else
+                this.memory_number = Math.floor(this.memory_number);
+                
+            this.current_number = this.factorial_int(this.memory_number);
+            this.operator = "";
+            this.float_digit = false;
+            this.number_of_float_digits = 10;
             return;
         }
         else {
